@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>百度BAE实践 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="百度推出BAE应用引擎已经很长时间，之前了解过，但是一直没有使用。之前阿里推出ACE的时候折腾过一阵子，但是当时技术知识太少。后来ACE关闭，现在BAE是国内唯一支持NodeJS的应用引擎了。有兴趣的也可以去试一下。你可以用它创建网站或博客，并且价格更便宜，静态的服务器一天只需一毛钱。 昨天折腾安装完Wordpress后，又开始在BAE上折腾Ghost Blog系统。折腾了快一天，到今天，终于安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="百度BAE实践">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/百度BAE实践/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="百度推出BAE应用引擎已经很长时间，之前了解过，但是一直没有使用。之前阿里推出ACE的时候折腾过一阵子，但是当时技术知识太少。后来ACE关闭，现在BAE是国内唯一支持NodeJS的应用引擎了。有兴趣的也可以去试一下。你可以用它创建网站或博客，并且价格更便宜，静态的服务器一天只需一毛钱。 昨天折腾安装完Wordpress后，又开始在BAE上折腾Ghost Blog系统。折腾了快一天，到今天，终于安装">
+<meta property="og:image" content="http://sango.dhumedia.cn/wp-content/uploads/2016/07/QQ截图20160721171320.png">
+<meta property="og:updated_time" content="2017-09-28T07:39:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="百度BAE实践">
+<meta name="twitter:description" content="百度推出BAE应用引擎已经很长时间，之前了解过，但是一直没有使用。之前阿里推出ACE的时候折腾过一阵子，但是当时技术知识太少。后来ACE关闭，现在BAE是国内唯一支持NodeJS的应用引擎了。有兴趣的也可以去试一下。你可以用它创建网站或博客，并且价格更便宜，静态的服务器一天只需一毛钱。 昨天折腾安装完Wordpress后，又开始在BAE上折腾Ghost Blog系统。折腾了快一天，到今天，终于安装">
+<meta name="twitter:image" content="http://sango.dhumedia.cn/wp-content/uploads/2016/07/QQ截图20160721171320.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-百度BAE实践" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/百度BAE实践/" class="article-date">
+  <time datetime="2017-09-28T07:30:17.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      百度BAE实践
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>百度推出BAE应用引擎已经很长时间，之前了解过，但是一直没有使用。之前阿里推出ACE的时候折腾过一阵子，但是当时技术知识太少。后来ACE关闭，现在BAE是国内唯一支持NodeJS的应用引擎了。有兴趣的也可以去试一下。你可以用它创建网站或博客，并且价格更便宜，静态的服务器一天只需一毛钱。</p>
+<p>昨天折腾安装完Wordpress后，又开始在BAE上折腾Ghost Blog系统。折腾了快一天，到今天，终于安装完成可以访问了，<a href="http://ghost.dhumedia.cn/" target="_blank" rel="external">http://ghost.dhumedia.cn/</a> 。以下是我的安装实践经历，供大家参考。</p>
+<p>先贴一张博客截图。</p>
+<p><img class="wp-image-17 size-full" src="http://sango.dhumedia.cn/wp-content/uploads/2016/07/QQ截图20160721171320.png" alt="ghost blog截图" width="1009" height="810"> ghost blog截图</p>
+<p><strong>准备条件：</strong></p>
+<p><ol><br>     <li>去百度开放云平台开通开发者账号；</li><br>     <li>进入开放平台管理控制台，然后进入BAE服务；</li><br>     <li>在BAE基础版进入添加部署选项，如果不缺钱可以用BAE专业版。</li><br></ol><br><strong>添加BAE应用：</strong></p>
+<p><ol><br>     <li>模板类型选所有模板；</li><br>     <li>模板场景选所有，然后下面选自定义。因为Ghost是nodejs的，提供的模板都是php的;</li><br>     <li>部署信息，域名和应用名称填写你喜欢的名字，之后就是你的百度应用的二级域名；</li><br>     <li>类型选nodejs-0.10-21-web或nodejs-4.2.6-web,千万不要选nodejs-4.4.4-web,ghost目前还不支持nodejs-4.2以上的版本；</li><br>     <li>代码版本工具选你习惯用的，你可以选择git；</li><br>     <li>执行套餐必须选256M以上，ghost需要内存至少256M；</li><br>     <li>剩下的磁盘带宽和执行单元选最小的就够了。</li><br></ol><br><strong>开始安装：</strong></p>
+<p><ol><br>     <li>在本地建立项目仓库文件夹，用git拉取你的BAE应用代码；</li><br>     <li>从ghost官网下载ghost安装源码，最好下完整版的带node_module的，因为npm镜像在中国，网络实在不太稳定；</li><br>     <li>将下载的代码解压到你的项目根目录，完整的解压完有160M左右；</li><br>     <li>修改package.json文件，将dependencies全部清空，因为依赖都已经在node_module里，不用在安装了。script里面只留下start:index.js, preinstall和test都去掉；</li><br>     <li>将config.example.js的端口2368或2369都改到18080，因为BAE只允许我们使用18080端口；</li><br>     <li>开启git bash命令行，运行git config –global http.postBuffer 157286400，因为我们要上传node_modules,文件太大。git默认限制上传大小；</li><br>     <li>现在可以commit你的项目然后push了；</li><br></ol><br>push完成之后就可以在BAE管理控制台发布你的应用了，初次发布时间很长，发布成功后，你就可以访问了。</p>
+<p><strong>需要注意的坑：</strong></p>
+<p><ol><br>     <li>nodejs的版本一定要在4.2及以下，要不然其他的可以，最后发现node版本不对就太坑了，我就这样被坑了一整天，然后重新添加应用换版本；</li><br>     <li>最好在本地把node_modules都推送上去，BAE的npm下载太慢了，很容易导致超时发布失败；</li><br>     <li>与第二点相关，node_modules推送上去的话，package.json里的dependencies最好都去掉，npm就不用再去拉取依赖的模块了，要不然也很影响发布时间；</li><br>     <li>package.json里的script里只能留下”start”:”index.js”，因为BAE只识别start:XXX.js，然后截取start和js之间的名字作为启动应用的入口。后面的.js不能少；</li><br>     <li>config.js里的端口不要忘了改；</li><br>     <li>要上传node_modules的话，postBuffer一定要配置在160M左右，要不然git没法push成功。</li><br></ol><br>我安装碰到的问题就这些，如果你也要试一下，希望能将我的经历提供给你借鉴，希望对你有所帮助，祝你安装成功。如果还有其他的问题，请在下面留言:)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/百度BAE实践/" data-id="cj8453tjd0002modtcs3cb49a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/28/mac 80端口被占用解决方案/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          mac 80端口被占用解决方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/28/angularjs右键菜单/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">angularjs右键菜单</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/28/webpack+npm实践/">webpack+npm实践</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/mac 80端口被占用解决方案/">mac 80端口被占用解决方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/百度BAE实践/">百度BAE实践</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/angularjs右键菜单/">angularjs右键菜单</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/wordpress实践/">WordPress 安装实践</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      工信部备案号 <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">沪ICP备15016474号</a><br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+      &copy; 2017
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
