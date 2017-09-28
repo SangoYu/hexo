@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mac 80端口被占用解决方法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近在用mac做前端开发。 利用nodejs启用80端口作静态服务器时，启动报错如下： #events.js:160throw er; // Unhandled ‘error’ event^Error: listen EADDRINUSE 0.0.0.0:80at Object.exports._errnoException (util.js:1022:11)at exports._excepti">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mac 80端口被占用解决方法">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/mac 80端口被占用解决方案/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近在用mac做前端开发。 利用nodejs启用80端口作静态服务器时，启动报错如下： #events.js:160throw er; // Unhandled ‘error’ event^Error: listen EADDRINUSE 0.0.0.0:80at Object.exports._errnoException (util.js:1022:11)at exports._excepti">
+<meta property="og:image" content="http://www.dhumedia.cn/wp-content/uploads/2016/12/屏幕快照-2016-12-01-16.49.16-300x27.png">
+<meta property="og:updated_time" content="2017-09-28T07:38:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mac 80端口被占用解决方法">
+<meta name="twitter:description" content="最近在用mac做前端开发。 利用nodejs启用80端口作静态服务器时，启动报错如下： #events.js:160throw er; // Unhandled ‘error’ event^Error: listen EADDRINUSE 0.0.0.0:80at Object.exports._errnoException (util.js:1022:11)at exports._excepti">
+<meta name="twitter:image" content="http://www.dhumedia.cn/wp-content/uploads/2016/12/屏幕快照-2016-12-01-16.49.16-300x27.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mac 80端口被占用解决方案" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/mac 80端口被占用解决方案/" class="article-date">
+  <time datetime="2017-09-28T07:32:18.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mac 80端口被占用解决方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在用mac做前端开发。</p>
+<p>利用nodejs启用80端口作静态服务器时，启动报错如下：</p>
+<p><pre>#<br>events.js:160<br>throw er; // Unhandled ‘error’ event<br>^<br>Error: listen EADDRINUSE 0.0.0.0:80<br>at Object.exports._errnoException (util.js:1022:11)<br>at exports._exceptionWithHostPort (util.js:1045:20)<br>at Server._listen2 (net.js:1262:14)<br>at listen (net.js:1298:10)<br>at doListening (net.js:1397:7)<br>at _combinedTickCallback (internal/process/next_tick.js:77:11)<br>at process._tickCallback (internal/process/next_tick.js:98:9)<br>at Module.runMain (module.js:609:11)<br>at run (bootstrap_node.js:420:7)<br>at startup (bootstrap_node.js:139:9)<br>at bootstrap_node.js:535:3</pre><br>这是因为80端口被占用，所以启动失败。</p>
+<p>网上一查发现原来mac自动启动了一个Apache服务器做web共享，启用的80端口。故我的webapp没法用80端口启动。</p>
+<p>于是先把Apache的web共享服务换到其他的端口，方法如下：</p>
+<p><pre>sudo vi /etc/apache2/httpd.conf</pre><br>把其中的Listen 80 中的80端口换为其他端口，我换为9080， 之后重启apache，运行以下命令:</p>
+<p><pre>sudo /usr/sbin/apachectl restart</pre><br>好了，到此，Apache服务器对80端口的占用已经解除。</p>
+<p>现在直接启动webapp服务时，又报了另外的错误：</p>
+<p><pre>events.js:160<br>throw er; // Unhandled ‘error’ event<br>^<br>Error: listen EACCES 0.0.0.0:80<br>at Object.exports._errnoException (util.js:1022:11)<br>at exports._exceptionWithHostPort (util.js:1045:20)<br>at Server._listen2 (net.js:1249:19)<br>at listen (net.js:1298:10)<br>at doListening (net.js:1397:7)<br>at _combinedTickCallback (internal/process/next_tick.js:77:11)<br>at process._tickCallback (internal/process/next_tick.js:98:9)<br>at Module.runMain (module.js:609:11)<br>at run (bootstrap_node.js:420:7)<br>at startup (bootstrap_node.js:139:9)<br>at bootstrap_node.js:535:3</pre><br>这是因为mac对普通用户1024以下的端口全部禁用，如果你切换到root用户，或者使用sudo 启动，就可以成功启动了。</p>
+<p>若还是启动失败，报80端口被占用，可以查看端口被占用情况再操作。</p>
+<p>mac查看端口使用情况 方法如下 :</p>
+<p><pre>lsof  -i :80 | grep  LISTEN</pre><br>可以获得占用80端口的进程PID，利用kill命令终结进程。</p>
+<p>我查看的是9020端口，显示的是PID为35730的进程占用了9020。可用kill 命令直接终结 : kill -9 9020</p>
+<p><a href="http://www.dhumedia.cn/wp-content/uploads/2016/12/屏幕快照-2016-12-01-16.49.16.png" target="_blank" rel="external"><img class="alignnone size-medium wp-image-38" src="http://www.dhumedia.cn/wp-content/uploads/2016/12/屏幕快照-2016-12-01-16.49.16-300x27.png" width="300" height="27"></a></p>
+<p>之后你就可以启动你的webapp啦。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/mac 80端口被占用解决方案/" data-id="cj8456eti0003modtamqdie1u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/28/webpack+npm实践/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          webpack+npm实践
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/28/百度BAE实践/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">百度BAE实践</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/28/webpack+npm实践/">webpack+npm实践</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/mac 80端口被占用解决方案/">mac 80端口被占用解决方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/百度BAE实践/">百度BAE实践</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/angularjs右键菜单/">angularjs右键菜单</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/wordpress实践/">WordPress 安装实践</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      工信部备案号 <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">沪ICP备15016474号</a><br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+      &copy; 2017
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

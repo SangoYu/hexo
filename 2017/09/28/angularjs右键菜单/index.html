@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>angularjs右键菜单 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近有一个右击显示右击菜单的需求。 因为在浏览器右击默认会调用浏览器的右键菜单，所以在angular里没有像ng-click和ng-dblclick自带的ng-right-click的指令，只能靠我们自己实现。 我在stackoverflow上找了一下，果然有人提了这样的问题。我就参考了一下，实现方式如下:     angular.module(‘app’).directive(‘ngRightC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angularjs右键菜单">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/angularjs右键菜单/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近有一个右击显示右击菜单的需求。 因为在浏览器右击默认会调用浏览器的右键菜单，所以在angular里没有像ng-click和ng-dblclick自带的ng-right-click的指令，只能靠我们自己实现。 我在stackoverflow上找了一下，果然有人提了这样的问题。我就参考了一下，实现方式如下:     angular.module(‘app’).directive(‘ngRightC">
+<meta property="og:updated_time" content="2017-09-28T07:35:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angularjs右键菜单">
+<meta name="twitter:description" content="最近有一个右击显示右击菜单的需求。 因为在浏览器右击默认会调用浏览器的右键菜单，所以在angular里没有像ng-click和ng-dblclick自带的ng-right-click的指令，只能靠我们自己实现。 我在stackoverflow上找了一下，果然有人提了这样的问题。我就参考了一下，实现方式如下:     angular.module(‘app’).directive(‘ngRightC">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-angularjs右键菜单" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/angularjs右键菜单/" class="article-date">
+  <time datetime="2017-09-28T07:28:29.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      angularjs右键菜单
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近有一个右击显示右击菜单的需求。</p>
+<p>因为在浏览器右击默认会调用浏览器的右键菜单，所以在angular里没有像ng-click和ng-dblclick自带的ng-right-click的指令，只能靠我们自己实现。</p>
+<p>我在stackoverflow上找了一下，果然有人提了这样的问题。我就参考了一下，实现方式如下:</p>
+<p><pre><br>    angular.module(‘app’).directive(‘ngRightClick’,function(){<br>        return {<br>            restrict : ‘A’,<br>            scope : {<br>                callback : ‘&amp;?ngRightClick’<br>            },<br>            link : function(scope, element, attrs){<br>                    element.bind(‘contextmenu’, event =&gt; {<br>                         scope.$apply(function () {<br>                            event.preventDefault();<br>                            //如果有回调函数<br>                            scope.callback();<br>                         });<br>                    });<br>            }<br>        }<br>    });<br></pre><br>html里指令使用方法如下:</p>
+<p><pre> &lt;span ng-click=”click()” ng-right-click=”rightClick()”&gt;&lt;/span&gt;</pre><br>controller写法:</p>
+<p><pre><br>    angular.module(‘app’,[]).controller(‘myController’,function($scope){<br>        $scope.click = function(){<br>             console.log(‘鼠标左击’);<br>        };<br>        $scope.rightClick = function(){<br>             console.log(‘鼠标右击’);<br>        };<br>    });<br></pre><br>参考自 stackoverflow : <a href="http://stackoverflow.com/questions/15731634/how-do-i-handle-right-click-events-in-angular-js" target="_blank" rel="external">http://stackoverflow.com/questions/15731634/how-do-i-handle-right-click-events-in-angular-js</a> .</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/angularjs右键菜单/" data-id="cj8452ry00001modtf6rt9l4u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/28/百度BAE实践/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          百度BAE实践
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/28/wordpress实践/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">WordPress 安装实践</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/28/webpack+npm实践/">webpack+npm实践</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/mac 80端口被占用解决方案/">mac 80端口被占用解决方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/百度BAE实践/">百度BAE实践</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/angularjs右键菜单/">angularjs右键菜单</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/wordpress实践/">WordPress 安装实践</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      工信部备案号 <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">沪ICP备15016474号</a><br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+      &copy; 2017
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

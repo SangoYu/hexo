@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>webpack+npm实践 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="npm 是时下最流行的js安装包管理工具，而webpack则是近两年崛起的模块加载和打包工具。 这两个工具一起使用能大大提高我们前端的生产效率，现在就来讲讲如何用这两个工具初始化项目，提高我们的开发效率。 注意：本文的前提是开发机器已经安装过nodejs和npm , 对npm 有一定了解。 1.初始化npm 的package.json文件： 先在项目目录下打开命令行，执行 npm init根据提示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack+npm实践">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/webpack+npm实践/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="npm 是时下最流行的js安装包管理工具，而webpack则是近两年崛起的模块加载和打包工具。 这两个工具一起使用能大大提高我们前端的生产效率，现在就来讲讲如何用这两个工具初始化项目，提高我们的开发效率。 注意：本文的前提是开发机器已经安装过nodejs和npm , 对npm 有一定了解。 1.初始化npm 的package.json文件： 先在项目目录下打开命令行，执行 npm init根据提示">
+<meta property="og:updated_time" content="2017-09-28T07:36:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack+npm实践">
+<meta name="twitter:description" content="npm 是时下最流行的js安装包管理工具，而webpack则是近两年崛起的模块加载和打包工具。 这两个工具一起使用能大大提高我们前端的生产效率，现在就来讲讲如何用这两个工具初始化项目，提高我们的开发效率。 注意：本文的前提是开发机器已经安装过nodejs和npm , 对npm 有一定了解。 1.初始化npm 的package.json文件： 先在项目目录下打开命令行，执行 npm init根据提示">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-webpack+npm实践" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/webpack+npm实践/" class="article-date">
+  <time datetime="2017-09-28T07:33:32.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      webpack+npm实践
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>npm 是时下最流行的js安装包管理工具，而webpack则是近两年崛起的模块加载和打包工具。</p>
+<p>这两个工具一起使用能大大提高我们前端的生产效率，现在就来讲讲如何用这两个工具初始化项目，提高我们的开发效率。</p>
+<p>注意：本文的前提是开发机器已经安装过nodejs和npm , 对npm 有一定了解。</p>
+<p>1.初始化npm 的package.json文件：</p>
+<p>先在项目目录下打开命令行，执行</p>
+<p><pre>npm init</pre><br>根据提示完成项目的初始化，系统会自动生成一个 package.json 文件。</p>
+<p>2.安装 webpack 和 webpack-dev-server：</p>
+<p>执行</p>
+<p><pre>npm install webpack –save-dev</pre></p>
+<p>npm install webpack-dev-server –save-dev<br>安装完成后， 可以看到package.json文件中的 devDependencies中有webpack和webpack-dev-server以及他们对应的版本。</p>
+<p>node_modules文件夹中也安装了对应的依赖包。</p>
+<p>3.配置webpack：</p>
+<p>在当前目录下，创建config文件夹，作为webpack配置文件存放目录。</p>
+<p>创建webpack.config.js、webpack.dev.config.js、webpack.build.config.js三个文件，dev和build两个文件会引用config.js，分别对应开发和生产打包时对应的webpack配置。</p>
+<p>webpack.config.js ：</p>
+<p>&nbsp;</p>
+<p><pre>let path = require(‘path’);</pre></p>
+<p>let ExtractTextPlugin = require(‘extract-text-webpack-plugin’);<br>let HtmlWebpackPlugin = require(‘html-webpack-plugin’);</p>
+<p>let config = {<br>entry : {<br>bootstrap : [path.join(<strong>dirname, ‘../src/bootstrap.js’)]<br>},<br>output : {<br>filename : ‘[name].[chunkhash].js’,<br>path : path.join(</strong>dirname, ‘../dist’),<br>publicPath : ‘’<br>},<br>module: {<br>rules : [<br>{<br>test : /.js$/,<br>enforce : ‘pre’,<br>exclude : /node_modules/,<br>loader : ‘eslint-loader’,<br>options : {<br>emitWarning : true<br>}<br>},<br>{<br>test : /.js$/,<br>exclude : /node_modules/,<br>use : ‘babel-loader’<br>},<br>{<br>test : /.css$/,<br>use : ExtractTextPlugin.extract({<br>fallback : ‘style-loader’,<br>use : ‘css-loader’<br>})<br>},<br>{<br>test : /.html$/,<br>use : ‘html-loader’<br>}<br>]<br>},<br>plugins : [<br>new HtmlWebpackPlugin({<br>template: path.join(<strong>dirname, ‘../src/index.html’)<br>})<br>],<br>resolve : {<br>modules : [<br>path.join(</strong>dirname, ‘../src’),<br>path.join(__dirname, ‘../node_modules’)<br>]<br>}<br>};</p>
+<p>module.exports = config;<br>可以看到里面用了几个webpack的plugin，这些plugin在使用之前必须安装：</p>
+<p><pre>npm install ExtractTextPlugin –save-dev</pre></p>
+<p>npm install HtmlWebpackPlugin –save-dev<br>eslint-loader是做语法检查的，可以帮助检测我们的代码是否规范，但是使用之前要安装eslint 和 eslint-loader：</p>
+<p><pre>npm install eslint –save-dev</pre></p>
+<p>npm install eslint-loader –save-dev<br>使用eslint同时，必须添加eslint的配置文件 , .eslintrc.json ：</p>
+<p><pre>{<br>“env”: {<br>“browser”: true,<br>“commonjs”: true,<br>“es6”: true,<br>“jasmine”: true,<br>“protractor”: true,<br>“phantomjs”: false<br>},<br>“extends”: “eslint:recommended”,<br>“parserOptions”: {<br>“sourceType”: “module”<br>},<br>“rules”: {<br>“curly”: “error”,<br>“indent”: [<br>“error”,<br>4,<br>{<br>“SwitchCase”: 1<br>}<br>],<br>“quotes”: [<br>“error”,<br>“single”<br>],<br>“semi”: [<br>“error”,<br>“always”<br>]<br>}<br>}</pre><br>babel是用来打包js，并且可以将es6 转为之前兼容的js，但是使用之前也必须安装：</p>
+<p><pre>npm install babel-loader –save-dev</pre><br>而且babel也必须要一个配置文件 .babelrc ：</p>
+<p>webpack.dev.config.js</p>
+<p><pre>let config = require(‘./webpack.config.js’);</pre></p>
+<p>const port = 12000;</p>
+<p>config.devtool = ‘inline-source-map’;<br>config.devServer = {<br>historyApiFallback : true,<br>contentBase : ‘./src’,<br>host : ‘0.0.0.0’,<br>port,<br>inline : true<br>};</p>
+<p>module.exports = config;<br>其中的port是配置本地开发的端口。我配的是12000，在启动服务之后，可以通过 localhost:12000 调试开发环境。</p>
+<p>webpack.build.config.js</p>
+<p><pre>let webpack = require(‘webpack’);<br>let config = require(‘./webpack.config.js’);</pre></p>
+<p>config.devtool = false;</p>
+<p>config.plugins.push(new webpack.LoaderOptionsPlugin({<br>minimize: true,<br>options: {<br>htmlLoader:{<br>minimize: true,<br>removeAttributeQuotes: false,<br>caseSensitive: true<br>}<br>}<br>}));</p>
+<p>config.plugins.push(new webpack.optimize.UglifyJsPlugin({<br>beautify : false,<br>output : {<br>comments : false<br>},<br>compress : {<br>warnings : false<br>}<br>}));</p>
+<p>module.exports = config;<br>4.添加业务模块和文件：</p>
+<p>我们在webpack.config.js中配置的是读取src文件夹中的bootstrap.js作为应用入口，而index.html作为主页面。</p>
+<p>现在可以创建src文件夹，然后创建bootstrap.js和index.html文件。</p>
+<p>如若要引用其他的模块，可在npm install 该模块之后 在 bootstrap.js中 import。</p>
+<p>最后执行</p>
+<p><pre>npm run dev</pre><br>命令 即可启动开发环境，启动之后可在 localhost:12000中预览。</p>
+<p>开发过程中，要根据相应的文件安装相应的loader，然后用loader打包相应文件。</p>
+<p>如果最后开发完成，要打包，执行</p>
+<p><pre>npm run build</pre><br>命令即可将应用打包到dist文件夹中。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/webpack+npm实践/" data-id="cj845801p0004modt8n1klh3k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/28/mac 80端口被占用解决方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mac 80端口被占用解决方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/28/webpack+npm实践/">webpack+npm实践</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/mac 80端口被占用解决方案/">mac 80端口被占用解决方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/百度BAE实践/">百度BAE实践</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/angularjs右键菜单/">angularjs右键菜单</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/wordpress实践/">WordPress 安装实践</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      工信部备案号 <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">沪ICP备15016474号</a><br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+      &copy; 2017
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
