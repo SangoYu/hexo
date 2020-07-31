@@ -8,15 +8,15 @@
   <meta name="description" content="最近在用mac做前端开发。 利用nodejs启用80端口作静态服务器时，启动报错如下：  # events.js:160 throw er; // Unhandled ‘error’ event ^ Error: listen EADDRINUSE 0.0.0.0:80 at Object.exports._errnoException (util.js:1022:11) at exports._">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MacOS中80端口被占用解决方法">
-<meta property="og:url" content="http://yoursite.com/2016/12/01/macos-e4-b8-ad80-e7-ab-af-e5-8f-a3-e8-a2-ab-e5-8d-a0-e7-94-a8-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/index.html">
+<meta property="og:url" content="https://www.dhumedia.cn/2016/12/01/macos-e4-b8-ad80-e7-ab-af-e5-8f-a3-e8-a2-ab-e5-8d-a0-e7-94-a8-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="最近在用mac做前端开发。 利用nodejs启用80端口作静态服务器时，启动报错如下：  # events.js:160 throw er; // Unhandled ‘error’ event ^ Error: listen EADDRINUSE 0.0.0.0:80 at Object.exports._errnoException (util.js:1022:11) at exports._">
-<meta property="og:image" content="http://www.dhumedia.cn/wp-content/uploads/2016/12/屏幕快照-2016-12-01-16.49.16-300x27.png">
-<meta property="og:updated_time" content="2017-09-28T09:46:45.000Z">
+<meta property="og:image" content="https://www.dhumedia.cn/wp-content/uploads/2016/12/屏幕快照-2016-12-01-16.49.16-300x27.png">
+<meta property="og:updated_time" content="2020-07-31T06:55:31.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MacOS中80端口被占用解决方法">
 <meta name="twitter:description" content="最近在用mac做前端开发。 利用nodejs启用80端口作静态服务器时，启动报错如下：  # events.js:160 throw er; // Unhandled ‘error’ event ^ Error: listen EADDRINUSE 0.0.0.0:80 at Object.exports._errnoException (util.js:1022:11) at exports._">
-<meta name="twitter:image" content="http://www.dhumedia.cn/wp-content/uploads/2016/12/屏幕快照-2016-12-01-16.49.16-300x27.png">
+<meta name="twitter:image" content="https://www.dhumedia.cn/wp-content/uploads/2016/12/屏幕快照-2016-12-01-16.49.16-300x27.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -56,7 +56,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://www.dhumedia.cn"></form>
       </div>
     </div>
   </div>
@@ -137,13 +137,13 @@
 <p>lsof  -i :80 | grep  LISTEN<br>可以获得占用80端口的进程PID，利用kill命令终结进程。</p>
 </blockquote>
 <p>我查看的是9020端口，显示的是PID为35730的进程占用了9020。可用kill 命令直接终结 : kill -9 9020</p>
-<p><a href="http://www.dhumedia.cn/wp-content/uploads/2016/12/屏幕快照-2016-12-01-16.49.16.png" target="_blank" rel="external"><img src="http://www.dhumedia.cn/wp-content/uploads/2016/12/屏幕快照-2016-12-01-16.49.16-300x27.png" alt="%e5%b1%8f%e5%b9%95%e5%bf%ab%e7%85%a7-2016-12-01-16-49-16"></a></p>
+<p><a href="/wp-content/uploads/2016/12/屏幕快照-2016-12-01-16.49.16.png"><img src="/wp-content/uploads/2016/12/屏幕快照-2016-12-01-16.49.16-300x27.png" alt="%e5%b1%8f%e5%b9%95%e5%bf%ab%e7%85%a7-2016-12-01-16-49-16"></a></p>
 <p>之后你就可以启动你的webapp啦。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/01/macos-e4-b8-ad80-e7-ab-af-e5-8f-a3-e8-a2-ab-e5-8d-a0-e7-94-a8-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/" data-id="cj84ae70m000449dtlito5kyx" class="article-share-link">Share</a>
+      <a data-url="https://www.dhumedia.cn/2016/12/01/macos-e4-b8-ad80-e7-ab-af-e5-8f-a3-e8-a2-ab-e5-8d-a0-e7-94-a8-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/" data-id="ckd9vedty0003e3dtgm9vxoen" class="article-share-link">Share</a>
       
       
     </footer>
@@ -241,7 +241,7 @@
     <div id="footer-info" class="inner">
       工信部备案号 <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">沪ICP备15016474号</a><br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
-      &copy; 2017
+      &copy; 2020
     </div>
   </div>
 </footer>
